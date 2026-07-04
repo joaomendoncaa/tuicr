@@ -177,6 +177,8 @@ fn map_normal_mode(key: KeyEvent, leader_key: char) -> Action {
         // File navigation (use _ for modifiers since shift is implicit in the character)
         (KeyCode::Char('}'), _) => Action::NextFile,
         (KeyCode::Char('{'), _) => Action::PrevFile,
+        (KeyCode::Char('n'), KeyModifiers::CONTROL) => Action::NextFile,
+        (KeyCode::Char('p'), KeyModifiers::CONTROL) => Action::PrevFile,
         (KeyCode::Char(']'), _) => Action::NextHunk,
         (KeyCode::Char('['), _) => Action::PrevHunk,
         (KeyCode::Char(')'), _) => Action::CycleCommitNext,
